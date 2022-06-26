@@ -17,9 +17,9 @@ async function main() {
   const balanceBN = await signer.getBalance();
   const balance = Number(ethers.utils.formatEther(balanceBN));
   console.log(`Wallet balance ${balance}`);
-  // if (balance < 0.01) {
-  //   throw new Error("Not enough ether");
-  // }
+   if (balance < 0.01) {
+     throw new Error("Not enough ether");
+   }
   if (process.argv.length < 3) throw new Error("Please specify contract address");
   const ballotAddress = process.argv[2];
   if (process.argv.length < 4) throw new Error("Please specify address to delegate your vote");
